@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111827"><meta name="description" content="Nisha Kart — discover everyday essentials, fashion, electronics and more.">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<title>Nisha Kart — Shop Smart</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Nisha Kart home"><span class="brand-mark">N</span><span>Nisha<span class="brand-accent">Kart</span><small>SHOP SMART. LIVE BETTER.</small></span></a>
+  <div class="location"><span>⌖</span><span><small>Deliver to</small><b id="deliverLocation">India</b></span></div>
+  <form class="search" id="searchForm"><select id="searchCategory" aria-label="Search category"><option value="all">All</option><option>Electronics</option><option>Fashion</option><option>Home</option><option>Beauty</option><option>Grocery</option></select><input id="searchInput" type="search" placeholder="Search products, brands and more..." autocomplete="off"><button aria-label="Search">⌕</button></form>
+  <div class="top-actions"><button class="text-action" id="accountBtn"><span>♙</span><small>Hello, sign in</small><b>Account</b></button><button class="text-action" id="ordersBtn"><span>▤</span><small>Track</small><b>Orders</b></button><button class="cart-action" id="cartBtn"><span>🛒</span><b>Cart</b><i id="cartCount">0</i></button><button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button></div>
+</header>
+<nav class="nav" id="mainNav"><div class="nav-inner"><button class="nav-link active" data-category="all">☰ All</button><button class="nav-link" data-category="Electronics">Electronics</button><button class="nav-link" data-category="Fashion">Fashion</button><button class="nav-link" data-category="Home">Home & Kitchen</button><button class="nav-link" data-category="Beauty">Beauty</button><button class="nav-link" data-category="Grocery">Grocery</button><button class="nav-link" data-category="all" data-deals="true">Today's Deals ✨</button><button class="nav-link" id="adminNav">Admin</button></div></nav>
+<main>
+<section class="hero">
+ <div class="hero-copy"><span class="eyebrow">THE NISHA KART EDIT</span><h1>Everything you love.<br><em>All in one cart.</em></h1><p>Discover great finds across fashion, tech, home and everyday essentials.</p><button class="primary-btn" id="shopNow">Explore products <span>→</span></button><div class="hero-points"><span>✓ Curated picks</span><span>✓ Great value</span><span>✓ Easy shopping</span></div></div>
+ <div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-card card-a">🎧<small>TECH FINDS</small></div><div class="art-card card-b">👟<small>NEW STYLE</small></div><div class="art-card card-c">🏠<small>HOME PICKS</small></div><div class="art-center">N<span>K</span></div><div class="floating-tag">✨ BIG FINDS<br><b>BETTER PRICES</b></div></div>
+</section>
+<section class="benefits"><div><span>🚚</span><p><b>Easy delivery</b><small>To your doorstep</small></p></div><div><span>🔒</span><p><b>Secure experience</b><small>Privacy-first demo store</small></p></div><div><span>↩</span><p><b>Simple returns</b><small>Clear order support</small></p></div><div><span>💬</span><p><b>We're here to help</b><small>Friendly support</small></p></div></section>
+<section class="category-section"><div class="section-heading"><div><span class="eyebrow">BROWSE BY INTEREST</span><h2>Shop by category</h2></div><button class="subtle-btn" data-category="all">View all →</button></div><div class="category-grid" id="categoryGrid"></div></section>
+<section class="products-section" id="productsSection"><div class="section-heading"><div><span class="eyebrow">HANDPICKED FOR YOU</span><h2 id="productHeading">Popular right now</h2><p class="muted" id="productSubheading">Fresh finds worth adding to your cart.</p></div><div class="sort-wrap"><label for="sortSelect">Sort by</label><select id="sortSelect"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="rating">Top rated</option></select></div></div><div class="filter-row"><button class="filter-chip selected" data-filter="all">All products</button><button class="filter-chip" data-filter="deal">Deals</button><button class="filter-chip" data-filter="new">New arrivals</button><span id="resultCount" class="result-count"></span></div><div class="product-grid" id="productGrid"></div></section>
+<section class="newsletter"><div><span class="eyebrow">THE GOOD-FINDS CLUB</span><h2>A little joy in your inbox.</h2><p>Get updates about new arrivals and special offers.</p></div><form id="newsletterForm"><input type="email" placeholder="Your email address" required><button class="primary-btn">Join us →</button></form></section>
+</main>
+<footer><a class="brand footer-brand" href="#"><span class="brand-mark">N</span><span>Nisha<span class="brand-accent">Kart</span><small>SHOP SMART. LIVE BETTER.</small></span></a><p>Thoughtful finds for everyday living.</p><div class="footer-links"><a href="#productsSection">Shop</a><button id="footerOrders">Your orders</button><button id="footerHelp">Help & support</button><button id="footerAdmin">Admin demo</button></div><small>© <span id="year"></span> Nisha Kart. An independent demo shopping experience.</small></footer>
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" aria-label="Shopping cart"><div class="drawer-head"><div><span class="eyebrow">YOUR SELECTION</span><h2>Your cart <span id="drawerCount">(0)</span></h2></div><button class="close-btn" data-close>×</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-foot" id="cartFooter"></div></aside>
+<section class="modal" id="appModal" role="dialog" aria-modal="true"><div class="modal-head"><div><span class="eyebrow" id="modalEyebrow">NISHA KART</span><h2 id="modalTitle">Welcome</h2></div><button class="close-btn" data-close>×</button></div><div class="modal-content" id="modalContent"></div></section>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+<script>if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+</body></html>
